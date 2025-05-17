@@ -1,40 +1,13 @@
-# ✨ So you want to run an audit
-
-This `README.md` contains a set of checklists for our audit collaboration. This is your audit repo, which is used for scoping your audit and for providing information to wardens
-
-Some of the checklists in this doc are for our scouts and some of them are for **you as the audit sponsor (⭐️)**.
-
----
-
-# Repo setup
-
-## ⭐️ Sponsor: Add code to this repo
-
-- [ ] Create a PR to this repo with the below changes:
-- [ ] Confirm that this repo is a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 48 business hours prior to audit start time.**
-- [ ] Be prepared for a 🚨code freeze🚨 for the duration of the audit — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the audit. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
-
-## ⭐️ Sponsor: Repo checklist
-
-- [ ] Modify the [Overview](#overview) section of this `README.md` file. Describe how your code is supposed to work with links to any relevant documentation and any other criteria/details that the auditors should keep in mind when reviewing. (Here are two well-constructed examples: [Ajna Protocol](https://github.com/code-423n4/2023-05-ajna) and [Maia DAO Ecosystem](https://github.com/code-423n4/2023-05-maia))
-- [ ] Optional: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] Review and confirm the details created by the Scout (technical reviewer) who was assigned to your contest. *Note: any files not listed as "in scope" will be considered out of scope for the purposes of judging, even if the file will be part of the deployed contracts.*  
-
----
-
 # Upside audit details
-- Total Prize Pool: $13000 in USDC
-  - HM awards: up to XXX XXX USDC (Notion: HM (main) pool)
+- Total Prize Pool: $13,000 in USDC
+  - HM awards: up to $9,600 in USDC
     - If no valid Highs or Mediums are found, the HM pool is $0 
   - QA awards: $400 in USDC
-  - Judge awards: $2500 in USDC
-  - Validator awards: XXX XXX USDC (Notion: Triage fee - final)
+  - Judge awards: $2,500 in USDC
   - Scout awards: $500 in USDC
-  - (this line can be removed if there is no mitigation) Mitigation Review: XXX XXX USDC
-- [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
-- Starts XXX XXX XX 20:00 UTC (ex. `Starts March 22, 2023 20:00 UTC`)
-- Ends XXX XXX XX 20:00 UTC (ex. `Ends March 30, 2023 20:00 UTC`)
+- [Read our guidelines for more details](https://docs.code4rena.com/competitions)
+- Starts May 19, 2025 20:00 UTC
+- Ends May 26, 2025 20:00 UTC
 
 **Note re: risk level upgrades/downgrades**
 
@@ -48,21 +21,41 @@ As such, wardens are encouraged to select the appropriate risk level carefully d
 
 The 4naly3er report can be found [here](https://github.com/code-423n4/2025-05-upside/blob/main/4naly3er-report.md).
 
-
-
 _Note for C4 wardens: Anything included in this `Automated Findings / Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
-## 🐺 C4: Begin Gist paste here (and delete this line)
+
+- It's possible for the Owner to withdraw liquidity for all tokens provided 14 days have passed. This is a global countdown timer that once passed, allows the Owner to remove liquidity for migration. This applies for ALL tokens including those that may be deployed in the future.
+- The liquidity token is always intended to be USDC.
+
+✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
+
+# Overview
+
+[ ⭐️ SPONSORS: add info here ]
 
 
+## Links
 
+- **Previous audits:**  
+  - [Upside.fun(Uptoken) Security Review (May 16, 2025)](https://github.com/code-423n4/2025-05-upside/2025-05-16-hans-upside-v4.pdf)
+- **Documentation:** n/a
+- [**Code walk-through**](https://www.youtube.com/watch?v=KLh4ysaDhzA)
+- **Website:** https://upside.fun/
+- **X/Twitter:** https://x.com/UpsideFun
 
+---
 
 # Scope
 
 *See [scope.txt](https://github.com/code-423n4/2025-05-upside/blob/main/scope.txt)*
 
-### Files in scope
+[ ✅ SCOUTS: add scoping and technical details here ]
 
+### Files in scope
+- ✅ This should be completed using the `metrics.md` file
+- ✅ Last row of the table should be Total: SLOC
+- ✅ SCOUTS: Have the sponsor review and and confirm in text the details in the section titled "Scoping Q amp; A"
+
+*For sponsors that don't use the scoping tool: list all files in scope in the table below (along with hyperlinks) -- and feel free to add notes to emphasize areas of focus.*
 
 | File   | Logic Contracts | Interfaces | nSLOC | Purpose | Libraries used |
 | ------ | --------------- | ---------- | ----- | -----   | ------------ |
@@ -70,7 +63,9 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 | /contracts/UpsideProtocol.sol | 1| 1 | 294 | |@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol<br>@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol<br>@openzeppelin/contracts/access/Ownable.sol|
 | **Totals** | **2** | **2** | **354** | | |
 
+
 ### Files out of scope
+✅ SCOUTS: List files/directories out of scope
 
 *See [out_of_scope.txt](https://github.com/code-423n4/2025-05-upside/blob/main/out_of_scope.txt)*
 
@@ -80,3 +75,71 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 | ./contracts/UpsideStakingStub.sol |
 | Totals: 2 |
 
+# Additional context
+
+## Areas of concern (where to focus for bugs)
+None
+
+✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
+
+## Main invariants
+
+Only the Owner can: set fee parameters, set staking contract address, claim protocol fees, change name/symbol of a MetaCoin, disable whitelist, withdraw liquidity, set tokenization fees and whitelist addresses for transfer.
+
+Tokenization of a URL can only happen once. Tokens are deployed with a fixed initial supply and reserves.
+
+MetaCoin transfers are restricted by whitelist unless explicitly disabled by the Owner. The Owner can permanently disable the whitelist for any MetaCoin.
+
+Reserves for liquidityToken and MetaCoin are always updated after each swap. Sell swaps should never drop below INITIAL_LIQUIDITY_RESERVES.
+
+Fee revenue is accumulated and must be claimed explicitly by the deployer or Owner. Transfers of claimable fees are never automatic.
+
+Liquidity withdrawal is restricted by a global cooldown mechanism. Once triggered, the Owner must wait 14 days before a withdrawal can be completed.
+
+✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
+
+## All trusted roles in the protocol
+
+Owner
+
+✅ SCOUTS: Please format the response above 👆 using the template below👇
+
+| Role                                | Description                       |
+| --------------------------------------- | ---------------------------- |
+| Owner                          | Has superpowers                |
+| Administrator                             | Can change fees                       |
+
+✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
+
+## Running tests
+
+Clone the repo
+
+npm i
+
+npx hardhat vars setup
+
+yarn coverage or yarn test
+
+✅ SCOUTS: Please format the response above 👆 using the template below👇
+
+```bash
+git clone https://github.com/code-423n4/2023-08-arbitrum
+git submodule update --init --recursive
+cd governance
+foundryup
+make install
+make build
+make sc-election-test
+```
+To run code coverage
+```bash
+make coverage
+```
+
+✅ SCOUTS: Add a screenshot of your terminal showing the test coverage
+
+## Miscellaneous
+Employees of Upside and employees' family members are ineligible to participate in this audit.
+
+Code4rena's rules cannot be overridden by the contents of this README. In case of doubt, please check with C4 staff.
