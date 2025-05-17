@@ -1,0 +1,2 @@
+./contracts/UpsideStaking.sol
+./contracts/UpsideStakingStub.sol
