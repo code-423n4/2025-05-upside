@@ -30,8 +30,7 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 # Overview
 
-[ ⭐️ SPONSORS: add info here ]
-
+Upside is a social prediction market (think Polymarket + reddit) where you win money by being early on viral tweets, Spotify songs, YouTube videos, etc..
 
 ## Links
 
