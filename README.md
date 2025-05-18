@@ -1,7 +1,7 @@
 # Upside audit details
 - Total Prize Pool: $13,000 in USDC
   - HM awards: up to $9,600 in USDC
-    - If no valid Highs or Mediums are found, the HM pool is $0 
+    - If no valid Highs or Mediums are found, the HM pool is $0
   - QA awards: $400 in USDC
   - Judge awards: $2,500 in USDC
   - Scout awards: $500 in USDC
@@ -11,7 +11,7 @@
 
 **Note re: risk level upgrades/downgrades**
 
-Two important notes about judging phase risk adjustments: 
+Two important notes about judging phase risk adjustments:
 - High- or Medium-risk submissions downgraded to Low-risk (QA) will be ineligible for awards.
 - Upgrading a Low-risk finding from a QA report to a Medium- or High-risk finding is not supported.
 
@@ -23,8 +23,37 @@ The 4naly3er report can be found [here](https://github.com/code-423n4/2025-05-up
 
 _Note for C4 wardens: Anything included in this `Automated Findings / Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
 
-- It's possible for the Owner to withdraw liquidity for all tokens provided 14 days have passed. This is a global countdown timer that once passed, allows the Owner to remove liquidity for migration. This applies for ALL tokens including those that may be deployed in the future.
-- The liquidity token is always intended to be USDC.
+🔒 Global Liquidity Withdrawal Timer
+
+•	The withdrawLiquidity function uses a global cooldown timer.
+
+•	Once this timer is triggered and expires, the Owner can withdraw liquidity from all MetaCoins, both past and future.
+
+•	This behavior is by design and not scoped per MetaCoin.
+
+💵 Liquidity Token is Assumed to be USDC
+
+•	INITIAL_LIQUIDITY_RESERVES is hardcoded to 10_000 * 10^6, assuming USDC with 6 decimals.
+
+🔁 Swap Function Reentrancy Consideration
+
+•	The swap() function makes external token transfers (e.g., transfer, approve).
+
+•	Reentrancy guards are intentionally omitted, relying instead on the assumption that only trusted tokens (USDC, MetaCoins) are used.
+
+•	Given this closed token set, reentrancy is not considered a practical risk.
+
+🧾 Zero-Value Claims & Transfers
+
+•	Both the protocol and deployer can call claim* functions even if their claimable balance is 0.
+
+🪪 Token Name Changes & Permit Compatibility
+
+•	Owners can call setNameAndSymbol() to update the name/symbol of a MetaCoin.
+
+•	This may break ERC20 Permit compatibility due to EIP-712 domain separation relying on the name() value.
+
+•	Integrators using permit() should handle potential mismatches or restrict tokens that have changed their name.
 
 ✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
 
@@ -34,7 +63,7 @@ Upside is a social prediction market (think Polymarket + reddit) where you win m
 
 ## Links
 
-- **Previous audits:**  
+- **Previous audits:**
   - [Upside.fun(Uptoken) Security Review (May 16, 2025)](https://github.com/code-423n4/2025-05-upside/2025-05-16-hans-upside-v4.pdf)
 - **Documentation:** n/a
 - [**Code walk-through**](https://www.youtube.com/watch?v=KLh4ysaDhzA)
