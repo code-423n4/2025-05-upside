@@ -87,8 +87,8 @@ For a more detailed and in-depth technical overview of the project, please visit
 
 | File   | SLOC | Code Coverage (Statements / Branches) | Purpose | Libraries used |
 | ------ | --------------- | -- | ---------- | ----- |
-| [contracts/UpsideMetaCoin.sol](https://github.com/code-423n4/2025-05-upside/blob/main/contracts/UpsideMetaCoin.sol) | 62 | 100% (80%) | An ERC-20 implementation whose transfers are restricted via a whitelist|@openzeppelin/contracts/token/ERC20/ERC20.sol<br>@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol<br>@openzeppelin/contracts/access/Ownable.sol|
-| [contracts/UpsideProtocol.sol](https://github.com/code-423n4/2025-05-upside/blob/main/contracts/UpsideProtocol.sol) | 317 | 100% (98.65%) | Permits the tokenization of any URL through the above token and facilitates swap and fee mechanisms on top of it|@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol<br>@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol<br>@openzeppelin/contracts/access/Ownable.sol<br>contracts/UpsideMetaCoin.sol|
+| [contracts/UpsideMetaCoin.sol](https://github.com/code-423n4/2025-05-upside/blob/main/contracts/UpsideMetaCoin.sol) | 62 | 100% (80%) | An ERC-20 implementation whose transfers are restricted via a whitelist|@openzeppelin/contracts/token/ERC20/ERC20.sol, @openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol, @openzeppelin/contracts/access/Ownable.sol|
+| [contracts/UpsideProtocol.sol](https://github.com/code-423n4/2025-05-upside/blob/main/contracts/UpsideProtocol.sol) | 317 | 100% (98.65%) | Permits the tokenization of any URL through the above token and facilitates swap and fee mechanisms on top of it|@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol, @openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol, @openzeppelin/contracts/access/Ownable.sol, contracts/UpsideMetaCoin.sol|
 | **Totals** | **379** | 100% (89.325%) | |
 
 *See [scope.txt](https://github.com/code-423n4/2025-05-upside/blob/main/scope.txt) for a machine-readable version*
@@ -136,7 +136,7 @@ Liquidity withdrawal is restricted by a global cooldown mechanism. Once triggere
 
 | Role                                | Description                       |
 | --------------------------------------- | ---------------------------- |
-| Owner                          | - Sets fee parameters<br>- Sets staking contract address<br>- Claims fees<br>- Changes name / symbol of a MetaCoin<br>- Disables whitelist<br>- Withdraws liquidity<br>- Sets tokenization fees<br>- Whitelists addresses for transfers               |
+| Owner                          | - Sets fee parameters, - Sets staking contract address, - Claims fees, - Changes name / symbol of a MetaCoin, - Disables whitelist, - Withdraws liquidity, - Sets tokenization fees, - Whitelists addresses for transfers               |
 
 ## Running tests
 
