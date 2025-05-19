@@ -124,7 +124,7 @@ Reserves for the liquidity token and MetaCoin are always updated after each swap
 
 ### Fee Flows
 
-Fee revenue is accumulated and must be claimed explicitly by the deployer or `Owner`. Transfers of claimable fees are never automatic.
+Swap Fee revenue is accumulated and must be claimed explicitly by the deployer or `Owner`. Transfers of claimable fees are never automatic.
 
 ### Liquidity Withdrawal Restrictions
 
