@@ -71,7 +71,7 @@ For a more detailed and in-depth technical overview of the project, please visit
 ## Links
 
 - **Previous audits:**  
-  - [Upside.fun (Uptoken) Security Review (May 16, 2025)](https://github.com/code-423n4/2025-05-upside/2025-05-16-hans-upside-v4.pdf)
+  - [Upside.fun (Uptoken) Security Review (May 16, 2025)](https://github.com/code-423n4/2025-05-upside/blob/main/2025-05-16-hans-upside-v4.pdf)
 - **Documentation:** N/A
 - [**Code walk-through**](https://www.youtube.com/watch?v=KLh4ysaDhzA)
 - **Website:** https://upside.fun/
