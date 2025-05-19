@@ -10,13 +10,15 @@
 - Starts May 19, 2025 20:00 UTC
 - Ends May 26, 2025 20:00 UTC
 
-**Note re: risk level upgrades/downgrades**
-
-Two important notes about judging phase risk adjustments: 
-- High- or Medium-risk submissions downgraded to Low-risk (QA) will be ineligible for awards.
-- Upgrading a Low-risk finding from a QA report to a Medium- or High-risk finding is not supported.
-
-As such, wardens are encouraged to select the appropriate risk level carefully during the submission phase.
+### ❗️ Important notes for wardens
+1. A coded, runnable PoC is **required** for all High/Medium submissions to this audit. 
+   - Exception: PoC is optional (though recommended) for wardens with signal ≥ 0.68
+   - This audit repo includes [a basic template to run the test suite](https://github.com/code-423n4/2025-05-upside?tab=readme-ov-file#submission-poc).
+   - Your submission will be marked as Insufficient if the POC is not runnable and working.
+2. Judging phase risk adjustments (upgrades/downgrades): 
+   - High- or Medium-risk submissions downgraded to Low-risk (QA) will be ineligible for awards.
+   - Upgrading a Low-risk finding from a QA report to a Medium- or High-risk finding is not supported.
+   - As such, wardens are encouraged to select the appropriate risk level carefully during the submission phase.
 
 ## Automated Findings / Publicly Known Issues
 
