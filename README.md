@@ -24,6 +24,32 @@ The 4naly3er report can be found [here](https://github.com/code-423n4/2025-05-up
 
 _Note for C4 wardens: Anything included in this `Automated Findings / Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
 
+### 🔒 Global Liquidity Withdrawal Timer
+
+-	The withdrawLiquidity function uses a global cooldown timer.
+-	Once this timer is triggered and expires, the Owner can withdraw liquidity from all MetaCoins, both past and future.
+-	This behavior is by design and not scoped per MetaCoin.
+
+### 💵 Liquidity Token is Assumed to be USDC
+
+- INITIAL_LIQUIDITY_RESERVES is hardcoded to 10_000 * 10^6, assuming USDC with 6 decimals.
+
+### 🔁 Swap Function Reentrancy Consideration
+
+-	The swap() function makes external token transfers (e.g., transfer, approve).
+-	Reentrancy guards are intentionally omitted, relying instead on the assumption that only trusted tokens (USDC, MetaCoins) are used.
+- Given this closed token set, reentrancy is not considered a practical risk.
+
+### 🧾 Zero-Value Claims & Transfers
+
+-	Both the protocol and deployer can call claim* functions even if their claimable balance is 0.
+
+### 🪪 Token Name Changes & Permit Compatibility
+
+-	Owners can call setNameAndSymbol() to update the name/symbol of a MetaCoin.
+-	This may break ERC20 Permit compatibility due to EIP-712 domain separation relying on the name() value.
+-	Integrators using permit() should handle potential mismatches or restrict tokens that have changed their name.
+
 ### Centralization Risk 
 
 It's possible for the `Owner` to withdraw liquidity for all tokens provided 14 days have passed. This is a global countdown timer that once passed, allows the `Owner` to remove liquidity for migration. This applies for ALL tokens including those that may be deployed in the future.
