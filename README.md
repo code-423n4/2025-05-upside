@@ -135,8 +135,8 @@ Liquidity withdrawal is restricted by a global cooldown mechanism. Once triggere
 ## All trusted roles in the protocol
 
 | Role                                | Description                       |
-| --------------------------------------- | ---------------------------- |
-| Owner                          | - Sets fee parameters, - Sets staking contract address, - Claims fees, - Changes name / symbol of a MetaCoin, - Disables whitelist, - Withdraws liquidity, - Sets tokenization fees, - Whitelists addresses for transfers               |
+| :---------------------------------: | --------------------------------- |
+| Owner                               | - Sets fee parameters <br>- Sets staking contract address <br>- Claims fees <br>- Changes name / symbol of a MetaCoin <br>- Disables whitelist <br>- Withdraws liquidity <br>- Sets tokenization fees <br>- Whitelists addresses for transfers |
 
 ## Running tests
 
