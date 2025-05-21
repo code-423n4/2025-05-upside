@@ -12,9 +12,10 @@
 
 ### ❗️ Important notes for wardens
 1. A coded, runnable PoC is **required** for all High/Medium submissions to this audit. 
-   - Exception: PoC is optional (though recommended) for wardens with signal ≥ 0.68
    - This audit repo includes [a basic template to run the test suite](https://github.com/code-423n4/2025-05-upside?tab=readme-ov-file#submission-poc).
-   - Your submission will be marked as Insufficient if the POC is not runnable and working.
+   - PoCs must use the test suite provided in the audit repo.
+   - Your submission will be marked as Insufficient if the POC is not runnable and working with the provided test suite.
+   - Exception: PoC is optional (though recommended) for wardens with signal ≥ 0.68
 2. Judging phase risk adjustments (upgrades/downgrades): 
    - High- or Medium-risk submissions downgraded to Low-risk (QA) will be ineligible for awards.
    - Upgrading a Low-risk finding from a QA report to a Medium- or High-risk finding is not supported.
