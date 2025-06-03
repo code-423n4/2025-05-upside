@@ -11,6 +11,7 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./UpsideMetaCoin.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract UpsideProtocol is Ownable {
     using SafeERC20 for IERC20Metadata;
@@ -46,6 +47,7 @@ contract UpsideProtocol is Ownable {
     uint256 public withdrawLiquidityTimerStartTime;
     uint256 public claimableProtocolFees; // @dev This is always in liquidity tokens
     FeeInfo public feeInfo;
+    uint256 public minSellAmount;
 
     // @dev stores data on which addresses are whitelisted to transfer MetaCoins (per meta coin)
     mapping(address metaCoinAddress => mapping(address walletAddress => bool isWhitelisted))
@@ -210,6 +212,15 @@ contract UpsideProtocol is Ownable {
 
         if (_isBuy) {
             // @dev On buy, the dynamic time fee is used
+            uint256 minBuyAmount = 10000 / swapFeeBp;
+            require(
+                _tokenAmount >= minBuyAmount,
+                string.concat(
+                    "Insufficient input: please swap at least ",
+                    Strings.toString(minBuyAmount),
+                    " tokens"
+                )
+            );
             fee = (_tokenAmount * swapFeeBp) / 10000;
             tokenAmountAfterFee = _tokenAmount - fee;
 
@@ -217,6 +228,14 @@ contract UpsideProtocol is Ownable {
             feeToProtocol = fee;
         } else {
             // @dev On sell, a static percentage bp is used (impl could be significantly improved to save gas)
+            require(
+                _tokenAmount >= minSellAmount,
+                string.concat(
+                    "Insufficient input: please swap at least ",
+                    Strings.toString(minSellAmount),
+                    " tokens"
+                )
+            );
             fee = (_tokenAmount * feeInfo.swapFeeSellBp) / 10000;
             tokenAmountAfterFee = _tokenAmount - fee;
 
@@ -349,6 +368,7 @@ contract UpsideProtocol is Ownable {
         }
 
         feeInfo = _newFeeInfo;
+        minSellAmount = 10000 / feeInfo.swapFeeSellBp;
         emit FeeInfoSet(_newFeeInfo);
     }
 
