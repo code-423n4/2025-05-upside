@@ -1,0 +1,117 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-PUBLIC / upside-may
+==============================================================
+
+[05/19/2025 13:04] thebrittfactor (pinned)
+👋 Hello and welcome to the $13,000 **Upside** audit channel!
+
+📆 Audit opens Monday, 19 May 2025 20:00 (20:00 UTC) and runs through Monday, 26 May 2025 20:00 (20:00 UTC) (7 days).
+
+Please give a warm welcome to the Upside team, particularly @Steve, @Umar and @Zachary Dash, who will be available for questions via private threads, in the BST/CDT timezone(s). 
+
+Two important notes for this audit: 
+1. ❗**A coded, runnable PoC is required** for all High/Medium submissions to this audit. 
+   - Exception: PoC is optional (though recommended) for wardens with signal ≥ 0.68
+   - PoCs **must** use the test suite provided in the audit repo.
+   - The audit repo includes a basic PoC template to run the test suite.
+   - Your submission will be marked as Insufficient if the POC is not runnable and working with the provided test suite..
+2. 🤖 **Documentation bot** is *not* available for this audit, as there is no written documentation at this time. Wardens are strongly recommended to review the code walk-through linked in the audit repo `README` to understand the codebase.
+3. C4's new audit channel rules are in effect - please see https://discord.com/channels/810916927919620096/810929015509483554/1372881856898273340 if you missed the announcement. 
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/audits/2025-05-upside
+
+{Reactions}
+👍 (30) 👋 (8) code4rena (6) ❤️ (6) 🇧🇬 (2) 
+
+[05/19/2025 13:04] thebrittfactor
+Pinned a message.
+
+
+[05/20/2025 08:15] umarsa (pinned)
+Good morning everyone! I thought I would answer some common questions in public to avoid repeating
+
+We are planning to deploy only on base.
+
+The liquidity token is intended to always be USDC however the tokenize fee can be in any ERC20 token we have vetted and approved
+
+{Reactions}
+👍 (24) 
+
+[05/20/2025 09:59] umarsa
+I'm not sure if this was already shared but we do have a code walkthrough which might help explain some design decisions etc
+
+https://www.youtube.com/watch?v=KLh4ysaDhzA
+
+{Reactions}
+👍 (18) 
+
+[05/20/2025 11:14] cloudellie
+Since several wardens have asked whether Foundry PoCs are acceptable: the Upside team would prefer Hardhat wherever possible.
+
+{Reactions}
+👍 (9) thankyou (4) 
+
+[05/20/2025 14:19] thebrittfactor
+Pinned a message.
+
+
+[05/20/2025 14:46] thebrittfactor
+Welcome @Zachary Dash, from the Upside team as well 🙂
+
+{Reactions}
+🙌 (3) ✅ (5) 
+
+[05/21/2025 19:12] thebrittfactor
+ℹ️  Regarding the Mandatory POC requirement, the readme has been updated: 
+- PoCs **must** use the test suite provided in the audit repo.
+- Your submission will be marked as Insufficient if the POC is not runnable and working with the provided test suite.
+
+This update will apply to submissions for the Upside audit moving forward, so please ensure your PoC is functional in the provided test suite before submitting your findings from this point on.
+
+{Reactions}
+👍 (8) 😞 (6) 🤣 (5) 👎 (2) 
+
+[05/26/2025 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺Wardens The **Upside** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Progress through the judging, awarding, and reporting phases can be tracked via [the audit page](https://code4rena.com/audits/2025-05-upside).
+
+{Reactions}
+🔥 (7) ✅ (6) 10_10 (3) 😆 ❤️ 
+
+[06/04/2025 17:00] thebrittfactor
+🤑 🎉  Awards for **Upside**:
+
+$189.47 USDC » @Brene
+$126.32 USDC » @kjibi778
+$84.21 USDC » @hgrano
+
+🏁 Findings summary
+--------------------------------------
+0 High risk findings
+0 Med risk findings
+936 wardens participated
+
+Top QA report: Brene
+
+Awards will be distributed on Polygon within the next week. Congratulations all!  💸 💸 💸
+
+{Reactions}
+💀 (52) ❤️ (6) chefskiss (2) 🤔 (2) 
+
+[07/09/2025 23:30] C4
+ℹ️ This channel is pending archive.   As a result, any private threads will be permanently deleted 07/18/2025 23:19. Please make sure to grab anything you might need before then.
+
+
+[07/17/2025 20:02] C4
+ℹ️ Reminder: this channel will be deleted after 24 hours.
+
+
+==============================================================
+Exported 12 message(s)
+==============================================================
